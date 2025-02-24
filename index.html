@@ -54,43 +54,45 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     var parasomnia_count = 0;
 
     function insomniaAdd() {
-        insomnia_count = insomnia_count + 1;
+        insomnia_count += 1;
     }
 
     function sleepapneaAdd() {
-        sleepapnea_count = sleepapnea_count + 1;
+        sleepapnea_count += 1;
     }
 
     function narcolepsyAdd() {
-        narcolepsy_count = narcolepsy_count + 1;
+        narcolepsy_count += 1;
     }
 
     function parasomniaAdd() {
-        parasomnia_count = parasomnia_count + 1;
+        parasomnia_count += 1;
     }
 
     function diagnosisResults() {
-        var insomniaPercent = (insomnia_count / 1) * 100;
-        var sleepapneaPercent = (sleepapnea_count / 1) * 100;
-        var narcolepsyPercent = (narcolepsy_count / 1) * 100;
-        var parasomniaPercent = (parasomnia_count / 1) * 100;
+        var total = insomnia_count + sleepapnea_count + narcolepsy_count + parasomnia_count;
+        
+        if (total === 0) {
+            document.getElementById("results").innerHTML = "No data available for diagnosis.";
+            return;
+        }
+
+        var insomniaPercent = (insomnia_count / total) * 100;
+        var sleepapneaPercent = (sleepapnea_count / total) * 100;
+        var narcolepsyPercent = (narcolepsy_count / total) * 100;
+        var parasomniaPercent = (parasomnia_count / total) * 100;
         
         var resultText = document.getElementById("results");
-        resultText.innerHTML = "Probability of Insomnia: " + insomniaPercent + "%" + 
-                               "<br>Probability of Sleep Apnea: " + sleepapneaPercent + "%" + 
-                               "<br>Probability of Narcolepsy: " + narcolepsyPercent + "%" + 
-                               "<br>Probability of Parasomnia: " + parasomniaPercent + "%";
+        resultText.innerHTML = "Probability of Insomnia: " + insomniaPercent.toFixed(2) + "%" + 
+                               "<br>Probability of Sleep Apnea: " + sleepapneaPercent.toFixed(2) + "%" + 
+                               "<br>Probability of Narcolepsy: " + narcolepsyPercent.toFixed(2) + "%" + 
+                               "<br>Probability of Parasomnia: " + parasomniaPercent.toFixed(2) + "%";
     }
-
-    // This is a properly formatted JavaScript comment
-	
 </script>
 
 	
-</script>
-
-
-</script>	
+// This is a JavaScript comment
+/* This is a JavaScript comment */
 
 
 <!-- THIS STYLE CODE HELPS MAKE YOUR APP LOOK GOOD. PROBABLY DONT MESS WITH IT -->
