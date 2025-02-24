@@ -48,41 +48,44 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
-        var insomnia_count = 0;
-        var sleepapnea_count = 0;
-	var narcolepsy_count = 0;
-        var parasomnia_count = 0;
+    var insomnia_count = 0;
+    var sleepapnea_count = 0;
+    var narcolepsy_count = 0;
+    var parasomnia_count = 0;
 
+    function insomniaAdd() {
+        insomnia_count = insomnia_count + 1;
+    }
 
-        function insomniaAdd(){
-            insomnia_count = insomia_count + 1;
+    function sleepapneaAdd() {
+        sleepapnea_count = sleepapnea_count + 1;
+    }
 
-        }
+    function narcolepsyAdd() {
+        narcolepsy_count = narcolepsy_count + 1;
+    }
 
-        function sleepapneaAdd(){
-            sleepapnea_count = sleepapnea_count + 1;
-		
-        }
+    function parasomniaAdd() {
+        parasomnia_count = parasomnia_count + 1;
+    }
+
+    function diagnosisResults() {
+        var insomniaPercent = (insomnia_count / 1) * 100;
+        var sleepapneaPercent = (sleepapnea_count / 1) * 100;
+        var narcolepsyPercent = (narcolepsy_count / 1) * 100;
+        var parasomniaPercent = (parasomnia_count / 1) * 100;
+        
+        var resultText = document.getElementById("results");
+        resultText.innerHTML = "Probability of Insomnia: " + insomniaPercent + "%" + 
+                               "<br>Probability of Sleep Apnea: " + sleepapneaPercent + "%" + 
+                               "<br>Probability of Narcolepsy: " + narcolepsyPercent + "%" + 
+                               "<br>Probability of Parasomnia: " + parasomniaPercent + "%";
+    }
+
+    // This is a properly formatted JavaScript comment
 	
-	function narcolepsyAdd(){
-            narcolepsy_count = narcolepsy_count + 1;
+</script>
 
-        }
-
-        function parasomniaAdd(){
-            parasomnia_count = parasomnia_count + 1;
-        }
-	
-	function diagnosisResults(){
-		var insomniaPercent = (insomia_count/4) * 100; /* 4 pertains to the number of questions in total */
-		var sleepapneaPercent = (sleepapnea_count/4) * 100;
-		var narcolepsyPercent = (narcolepsy_count/4) * 100;
-		var parasomniaPercent = (parasomnia_count/4) * 100;
-		var resultText = document.getElementById("results"); /* results links back to the last page */
-	resultText.innerHTML = "Probability it is insomnia = " + insomniaPercent + "%" + "<br> Probability it is a sleepapnea = " + sleepapneaPercent + "%" + "<br> Probability it is a narcolepsy = " + narcolepsyPercent + "%" + "<br> Probability it is a parasomnia = " + parasomniaPercent + "%";
-	} /* this is the code for the function that allows the percent diagnosis of either a cold or allergy to occur */
-
-	/* (this is the JavaScript code for writing comments */
 	
 </script>
 
