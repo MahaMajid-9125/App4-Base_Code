@@ -28,182 +28,165 @@ https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 	
+<!DOCTYPE html> 
+<html> 
 <head> 
-	<title>Hello World</title>  
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<link rel="stylesheet" href="w3.css">
-	<link rel="stylesheet" href="w3-colors-flat.css">
-</head> 
+    <title>Sleep Disorder Quiz</title>  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="w3-colors-flat.css">
 
-<script>
-
-	<head> 
-      <title>Hello World</title>  
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" href="w3.css">
-      <link rel="stylesheet" href="w3-colors-flat.css">
-   </head> 
-
-
-<script>
-    var insomnia_count = 0;
-    var sleepapnea_count = 0;
-    var narcolepsy_count = 0;
-    var parasomnia_count = 0;
-
-    function insomniaAdd() {
-        insomnia_count += 1;
-    }
-
-    function sleepapneaAdd() {
-        sleepapnea_count += 1;
-    }
-
-    function narcolepsyAdd() {
-        narcolepsy_count += 1;
-    }
-
-    function parasomniaAdd() {
-        parasomnia_count += 1;
-    }
-
-    function diagnosisResults() {
-        var total = insomnia_count + sleepapnea_count + narcolepsy_count + parasomnia_count;
-        
-        if (total === 0) {
-            document.getElementById("results").innerHTML = "No data available for diagnosis.";
-            return;
+    <style>	
+        .body {
+            margin: 0em;
         }
 
-        var insomniaPercent = (insomnia_count / total) * 100;
-        var sleepapneaPercent = (sleepapnea_count / total) * 100;
-        var narcolepsyPercent = (narcolepsy_count / total) * 100;
-        var parasomniaPercent = (parasomnia_count / total) * 100;
-        
-        var resultText = document.getElementById("results");
-        resultText.innerHTML = "Probability of Insomnia: " + insomniaPercent.toFixed(2) + "%" + 
-                               "<br>Probability of Sleep Apnea: " + sleepapneaPercent.toFixed(2) + "%" + 
-                               "<br>Probability of Narcolepsy: " + narcolepsyPercent.toFixed(2) + "%" + 
-                               "<br>Probability of Parasomnia: " + parasomniaPercent.toFixed(2) + "%";
-    }
-</script>
+        .page {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -100vw;
+            overflow-y: auto;
+            z-index: 0;
+            background-color: hsl(0,0%,100%);
+        }
 
-	
-// This is a JavaScript comment
-/* This is a JavaScript comment */
+        .page:target {
+            left: 0vw;
+            z-index: 1;
+        }
 
+        img, object {
+            max-height: 90%;
+            max-width: 90%;
+        }
+    </style>
+    
+    <script>
+        var insomnia_count = 0;
+        var sleepapnea_count = 0;
+        var narcolepsy_count = 0;
+        var parasomnia_count = 0;
 
-<!-- THIS STYLE CODE HELPS MAKE YOUR APP LOOK GOOD. PROBABLY DONT MESS WITH IT -->
-<style>	
-.body {
-     margin: 0em;
-}
+        function insomniaAdd() {
+            insomnia_count += 1;
+        }
 
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
+        function sleepapneaAdd() {
+            sleepapnea_count += 1;
+        }
 
-  .page:target {
-    left: 0vw;
-    z-index: 1;
-}
-</style>
+        function narcolepsyAdd() {
+            narcolepsy_count += 1;
+        }
+
+        function parasomniaAdd() {
+            parasomnia_count += 1;
+        }
+
+        function diagnosisResults() {
+            var total = insomnia_count + sleepapnea_count + narcolepsy_count + parasomnia_count;
+            
+            if (total === 0) {
+                document.getElementById("results").innerHTML = "No data available for diagnosis.";
+                return;
+            }
+
+            var insomniaPercent = (insomnia_count / total) * 100;
+            var sleepapneaPercent = (sleepapnea_count / total) * 100;
+            var narcolepsyPercent = (narcolepsy_count / total) * 100;
+            var parasomniaPercent = (parasomnia_count / total) * 100;
+            
+            var resultText = document.getElementById("results");
+            resultText.innerHTML = "Probability of Insomnia: " + insomniaPercent.toFixed(2) + "%" + 
+                                   "<br>Probability of Sleep Apnea: " + sleepapneaPercent.toFixed(2) + "%" + 
+                                   "<br>Probability of Narcolepsy: " + narcolepsyPercent.toFixed(2) + "%" + 
+                                   "<br>Probability of Parasomnia: " + parasomniaPercent.toFixed(2) + "%";
+
+            console.log("Results calculated:", resultText.innerHTML); // Debugging log
+        }
+    </script>
+
+</head> 
 
 <body>
-	
-<div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
-</div>
-	
-<div id="content" class="w3-container">
-	<p>Could Your Sleep Problems Indicate a Disorder? Answer a few short questions to find out!</p>
-	
-	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
-	
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+
+    <div id="header" class="w3-container w3-flat-carrot">
+        <h1>Could Your Sleep Problems Indicate a Disorder?</h1>
+    </div>
+
+    <div id="content" class="w3-container">
+        <p>Answer a few short questions to find out!</p>
+        <a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+
+        <p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY MEDICAL CONDITION.</p>
-
-      <Image src="/sleep_disorder.png" alt="Sleep Disorder Check" width={200} height={200} className="mt-4 max-w-[90%] max-h-[90%]" />
-	      
-</div>
-
-<!-- (this is the html code for writing comments) -->
-
-<div class="page" id="one"> <!-- page one -->
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 1</h1> <!-- question one -->
-	</div>
+    </div>
 	
-    	<div id="content" class="w3-container">
-	<p>"Do you have trouble falling asleep, even when tired?"</p> <!-- content of question one -->   
-	<a href="#two"  onclick="insomniaAdd();" class="w3-btn w3-black"> Yes</a> <!-- Yes button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the Yes button -->
-         	<a href="#two" class="w3-btn w3-black">No</a> <!-- No button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the No button -->
-</div> <!-- always remember to organize </div> as they code for spacers -->
-	
-    	</div>
-	
-<div class="page" id="two"> <!-- page two -->
-	<div id="header" class="w3-container w3-flat-carrot"> 
-		<h1>Question 2</h1> <!-- question two -->
-	</div>
-	
-    	<div id="content" class="w3-container"> 
-	<p>Do you snore loudly or stop breathing while asleep?</p> <!-- content of question two -->    
-	<a href="#three"  onclick="sleepapneaAdd();" class="w3-btn w3-black"> Yes</a> <!-- Yes button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the Yes button -->
-         	<a href="#three" class="w3-btn w3-black">No</a> <!-- No button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the No button -->
-</div>
+    <div>
+        <img src="https://www.starmedicalassociates.com/wp-content/uploads/sites/539/2020/05/iStock-1140559999.jpg" 
+             alt="Sleep Disorder Check" 
+             width="200" height="200">
+    </div>
 
-    	</div>
-</div>	
-	<div class="page" id="three"> <!-- page three -->
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 3</h1> <!-- question three -->
-	</div>
-	
-    	<div id="content" class="w3-container">
-	<p>Do you feel excessively sleepy during the day?</p> <!-- content of question three -->      
-	<a href="#four"  onclick="narcolepsyAdd();" class="w3-btn w3-black"> Yes</a> <!-- Yes button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the Yes button -->
-         	<a href="#four" class="w3-btn w3-black">No</a> <!-- No button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the No button -->
-</div>
+    <!-- Question Pages -->
+    <div class="page" id="one">
+        <div id="header" class="w3-container w3-flat-carrot">
+            <h1>Question 1</h1>
+        </div>
+        <div id="content" class="w3-container">
+            <p>Do you have trouble falling asleep, even when tired?</p>
+            <a href="#two" onclick="insomniaAdd();" class="w3-btn w3-black">Yes</a>
+            <a href="#two" class="w3-btn w3-black">No</a>
+        </div>
+    </div>
 
-    	</div>
-</div>	
-	<div class="page" id="four"> <!-- page four -->
-	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Question 4</h1> <!-- question four -->
-	</div>
-	
-    	<div id="content" class="w3-container">
-	<p>Do you experience unusual movements or behaviors while sleeping?</p> <!-- content of question four -->     
-	<a href="#five"  onclick="parasomniaAdd();" class="w3-btn w3-black"> Yes</a> <!-- Yes button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the Yes button -->
-         	<a href="#five" class="w3-btn w3-black">No</a> <!-- No button - href="#two" refers to the page number that the button click results in and onclick="allergyAdd() refers back to the diagnosis function and the rest codes for the No button -->
-</div>
+    <div class="page" id="two">
+        <div id="header" class="w3-container w3-flat-carrot">
+            <h1>Question 2</h1>
+        </div>
+        <div id="content" class="w3-container">
+            <p>Do you snore loudly or stop breathing while asleep?</p>
+            <a href="#three" onclick="sleepapneaAdd();" class="w3-btn w3-black">Yes</a>
+            <a href="#three" class="w3-btn w3-black">No</a>
+        </div>
+    </div>
 
-    	</div>
+    <div class="page" id="three">
+        <div id="header" class="w3-container w3-flat-carrot">
+            <h1>Question 3</h1>
+        </div>
+        <div id="content" class="w3-container">
+            <p>Do you feel excessively sleepy during the day?</p>
+            <a href="#four" onclick="narcolepsyAdd();" class="w3-btn w3-black">Yes</a>
+            <a href="#four" class="w3-btn w3-black">No</a>
+        </div>
+    </div>
 
-</div>	
-	<div class="page" <p id="five"></p> <!-- page seven -->
-		<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Results</h1>
-	</div>
-		<p id="results"></p> <!-- "results" - this part relates back to the diagnosis function/make sure it is identical -->  
-	<div id="content" class="w3-container">
-	<a href="#five" onclick="diagnosisResults();" class="w3-btn w3-black"> Results</a> <!-- this code reveals the diagnosis by relating back to the diagnosis code -->
-	</div>
-		
-	<p>DIY!</p>
-	</footer>
-	</div>
-	
+    <div class="page" id="four">
+        <div id="header" class="w3-container w3-flat-carrot">
+            <h1>Question 4</h1>
+        </div>
+        <div id="content" class="w3-container">
+            <p>Do you experience unusual movements or behaviors while sleeping?</p>
+            <a href="#five" onclick="parasomniaAdd();" class="w3-btn w3-black">Yes</a>
+            <a href="#five" class="w3-btn w3-black">No</a>
+        </div>
+    </div>
+
+    <!-- Results Page -->
+    <div class="page" id="five">
+        <div id="header" class="w3-container w3-flat-carrot">
+            <h1>Results</h1>
+        </div>
+        <div id="content" class="w3-container">
+            <p id="results"></p>
+            <a href="#five" onclick="diagnosisResults();" class="w3-btn w3-black">See Results</a>
+        </div>
+    </div>
+
 </body>
 </html>
