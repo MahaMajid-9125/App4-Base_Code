@@ -48,23 +48,38 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 
 
 <script>
-        var allergy_count = 0;
-        var cold_count = 0;
+        var insomnia_count = 0;
+        var sleepapnea_count = 0;
+	var narcolepsy_count = 0;
+        var parasomnia_count = 0;
 
 
-        function allergyAdd(){
-            allergy_count = allergy_count + 1;
+        function insomniaAdd(){
+            insomnia_count = insomia_count + 1;
 
         }
 
-        function coldAdd(){
-            cold_count = cold_count + 1;
+        function sleepapneaAdd(){
+            sleepapnea_count = sleepapnea_count + 1;
+		
         }
+	
+	function narcolepsyAdd(){
+            narcolepsy_count = narcolepsy_count + 1;
+
+        }
+
+        function parasomniaAdd(){
+            parasomnia_count = parasomnia_count + 1;
+        }
+	
 	function diagnosisResults(){
-		var allergyPercent = (allergy_count/6) * 100; /* 6 pertains to the number of questions in total */
-		var coldPercent = (cold_count/6) * 100;
+		var insomniaPercent = (insomia_count/4) * 100; /* 4 pertains to the number of questions in total */
+		var sleepapneaPercent = (sleepapnea_count/4) * 100;
+		var narcolepsyPercent = (narcolepsy_count/4) * 100;
+		var parasomniaPercent = (parasomnia_count/4) * 100;
 		var resultText = document.getElementById("results"); /* results links back to the last page */
-	resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "%" + "<br> Probability it is a cold = " + coldPercent + "%";
+	resultText.innerHTML = "Probability it is insomnia = " + insomniaPercent + "%" + "<br> Probability it is a sleepapnea = " + sleepapneaPercent + "%" + "<br> Probability it is a narcolepsy = " + narcolepsyPercent + "%" + "<br> Probability it is a parasomnia = " + parasomniaPercent + "%";
 	} /* this is the code for the function that allows the percent diagnosis of either a cold or allergy to occur */
 
 	/* (this is the JavaScript code for writing comments */
@@ -105,7 +120,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </div>
 	
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies? Answer a few short questions to find out!</p>
+	<p>Could Your Sleep Problems Indicate a Disorder? Answer a few short questions to find out!</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
